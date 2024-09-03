@@ -317,60 +317,59 @@ The cipher can, be adapted to an alphabet with any number of letters. All arithm
 
 ## PROGRAM:
 ```
-#include <stdio.h> #include <string.h>
-int keymat[3][3] = { { 1, 2, 1 }, { 2, 3, 2 }, { 2, 2, 1 } };
-int invkeymat[3][3] = { { -1, 0, 1 }, { 2, -1, 0 }, { -2, 2, -1 } }; char key[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-char encode(char a, char b, char c) { char ret[4];
-int x, y, z;
-int posa = (int) a - 65; int posb = (int) b - 65; int posc = (int) c - 65;
-x = posa * keymat[0][0] + posb * keymat[1][0] + posc * keymat[2][0];
-y = posa * keymat[0][1] + posb * keymat[1][1] + posc * keymat[2][1];
-z = posa * keymat[0][2] + posb * keymat[1][2] + posc * keymat[2][2]; ret[0] = key[x % 26];
-ret[1] = key[y % 26]; ret[2] = key[z % 26]; ret[3] = '\0';
-return ret;
-}
-char decode(char a, char b, char c) { char ret[4];
-int x, y, z;
-int posa = (int) a - 65; int posb = (int) b - 65; int posc = (int) c - 65;
- 
-x = posa * invkeymat[0][0] + posb * invkeymat[1][0] + posc * invkeymat[2][0];y = posa * invkeymat[0][1] + posb * invkeymat[1][1] + posc * invkeymat[2][1];z = posa
-* invkeymat[0][2] + posb * invkeymat[1][2] + posc * invkeymat[2][2];ret[0] = key[(x % 26 < 0) ? (26 + x % 26) : (x % 26)];
-ret[1] = key[(y % 26 < 0) ? (26 + y % 26) : (y % 26)];
-ret[2] = key[(z % 26 < 0) ? (26 + z % 26) : (z % 26)];
-ret[3] = '\0'; return ret;
-}
-int main() { char msg[1000];
-char enc[1000] = ""; char dec[1000] = ""; int n;
-strcpy(msg, "SecurityLaboratory"); printf("Simulation of Hill Cipher\n"); printf("Input message : %s\n", msg); for (int i = 0; i < strlen(msg); i++) { msg[i] = toupper(msg[i]);
-}
-// Remove spaces
-n = strlen(msg) % 3;
-// Append padding text X if (n != 0) {
-for (int i = 1; i <= (3 - n); i++) {
-strcat(msg, "X");
-}
-}
-printf("Padded message : %s\n", msg); for (int i = 0; i < strlen(msg); i += 3) { char a = msg[i];
-char b = msg[i + 1]; char c = msg[i + 2];
-strcat(enc, encode(a, b, c));
-}
-printf("Encoded message : %s\n", enc); for (int i = 0; i < strlen(enc); i += 3) { char a = enc[i];
-char b = enc[i + 1]; char c = enc[i + 2];
-strcat(dec, decode(a, b, c));
- 
-}
-printf("Decoded message : %s\n", dec); return 0;
+#include <stdio.h>
+#include<conio.h>
+#include<string.h>
+int main()
+{
+    unsigned int a[3][3]={{6,2,41},{13,16,10},{20,17,15}};
+    unsigned int b[3][3]={{8,5,10},{21,8,21},{21,12,8}};
+    int i,j,t=0;
+    unsigned int c[20],d[20];
+    char msg[20];
+    printf("Enter plain text:");
+    scanf("%s",msg);
+    for(i=0;i<strlen(msg);i++)
+    {
+        c[i]=msg[i]-65;
+        printf("%d",c[i]);
+    }
+    for(i=0;i<3;i++)
+    {
+        t=0;
+        for(j=0;j<3;j++)
+        
+        {
+            t=t+(a[i][j]* c[j]);
+        }
+        d[i]=t%26;
+    }
+    printf("\nEncrypted Cipher Text:");
+    for(i=0;i<3;i++)
+    {
+        printf("%c",d[i]+65);
+    }
+    for(i=0;i<3;i++)
+    {
+        t=0;
+        for(j=0;j<3;j++)
+        {
+            t=t+(b[i][j]*d[j]);
+        }
+        c[i]=t%26;
+    }
+    printf("\nDecrypted Text:");
+    for(i=0;i<3;i++)
+    printf("%c",c[i]+65);
+    getch();
+    return 0;
+    
 }
 ```
 
 ## OUTPUT:
-```
-Simulating Hill Cipher
-```
+![image](https://github.com/user-attachments/assets/8290a220-66ed-4a6a-b4bd-cdcd19934932)
 
-
-Input Message : SecurityLaboratory
-Padded Message : SECURITYLABORATORY Encrypted Message : EACSDKLCAEFQDUKSXU Decrypted Message : SECURITYLABORATORY
 ## RESULT:
 The program is executed successfully
 
@@ -403,44 +402,83 @@ The Vigenere cipher is a method of encrypting alphabetic text by using a series 
 
 ## PROGRAM:
 ```
-#include<stdio.h> #include<string.h>
-//FunctiontoperformVigenereencryption voidvigenereEncrypt(char*text,constchar*key){ inttextLen= strlen(text);
-intkeyLen=strlen(key); for(inti =0;i< textLen;i++){ charc =text[i]; if(c>='A'&&c<='Z'){
-//Encryptuppercaseletters
-text[i]=((c-'A'+key[i%keyLen]-'A')%26)+'A';
-}else if(c>='a'&&c<='z'){
-//Encryptlowercaseletters
-text[i]=((c-'a'+key[i%keyLen]-'A')%26)+'a';
+#include <stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<ctype.h>
+#include<string.h>
+void encipher();
+void decipher();
+void main()
+{
+    int choice;
+    while(1)
+    {
+        printf("\n1. Encrypt Text");
+        printf("\t2. Decrypt Text");
+        printf("\t3. Exit");
+        printf("\n\nEnter Your Choice : ");   
+        scanf("%d",&choice);
+        if(choice==3)
+        exit(0);
+        else if(choice==1)
+        encipher();
+        else if(choice ==2)
+        decipher();
+        else
+        printf("Please Enter Valid Option.");
+    }
 }
-}
-}
-//FunctiontoperformVigeneredecryption voidvigenereDecrypt(char*text,constchar*key){ inttextLen= strlen(text);
-intkeyLen=strlen(key);
+void encipher()
+{
+   unsigned int i,j; 
+   char input[50],key[10];
+   printf("\n\n Enter Plain Text:");
+   scanf("%s",input);
+   printf("\nEnter Key Value");
+   scanf("%s",key);
+   printf("\nResultant Cipher Text:");
+   for(i=0,j=0;i<strlen(input);i++,j++)
+   {
+       if(j>=strlen(key))
+       {
+           j=0;
+       }
+       printf("%c",65+(((toupper(input[i])-65)+(toupper(key[j])-65))%26));
+   }}
+   
+   void decipher()
+   {
+      unsigned int i,j;
+      char input[50],key[50];
+      int value;
+      printf("\n\nEnter Cipher text:");
+      scanf("%s",input);
+      printf("\n\nEnter the key value:");
+      scanf("%s",key);
+      for(i=0,j=0;i<strlen(input);i++,j++)
+      {
+          if(j>=strlen(key))
+          {
+              j=0;
+          }
+          value = (toupper(input[i])-64)-(toupper(key[j])-64);
+        if( value < 0)
+        {
+            value=value*-1;
+        }
+        printf("%c",65+(value%26));
+      }
+   }
 
-for(inti =0;i< textLen;i++){ charc =text[i]; if(c>='A'&&c<='Z'){
-//Decryptuppercaseletters
- 
-text[i]=((c-'A'-(key[i% keyLen]-'A') +26) %26)+ 'A';
-}else if(c>='a'&&c<='z'){
-//Decryptlowercaseletters
-text[i]=((c-'a'-(key[i% keyLen]-'A') +26) %26)+ 'a';
-}
-}
-}
-intmain(){
-constchar *key="KEY";//Replacewithyourdesired key
-char message[]= "Thisisasecretmessage.";//Replace withyourmessage
-//Encrypt themessage vigenereEncrypt(message,key); printf("EncryptedMessage:%s\n",message);
-//Decrypt themessage backtotheoriginal vigenereDecrypt(message,key); printf("DecryptedMessage:%s\n",message); Return 0;
+    
+
+
 ```
 
 ## OUTPUT:
-```
-Simulating Vigenere Cipher
-```
+![image](https://github.com/user-attachments/assets/1ecd9218-4ae2-4081-b585-9a139e94f187)
 
-Input Message : SecurityLaboratory
-Encrypted Message : NMIYEMKCNIQVVROWXC Decrypted Message : SECURITYLABORATORY
 ## RESULT:
 The program is executed successfully
 
@@ -471,57 +509,54 @@ In the rail fence cipher, the plaintext is written downwards and diagonally on s
 
 ## PROGRAM:
 ```
-#include<stdio.h> #include<string.h> #include<stdlib.h> main()
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+void main()
 {
-int i,j,len,rails,count,code[100][1000]; char str[1000];
-printf("Enter a Secret Message\n"); gets(str);
-len=strlen(str);
-printf("Enter number of rails\n"); scanf("%d",&rails); for(i=0;i<rails;i++)
+int i,j,k,l;
+char a[20],c[20],d[20];
+printf("\n\t\t RAIL FENCE TECHNIQUE");
+printf("\n\nEnter the input string : ");
+gets(a);
+l=strlen(a);
+/*Ciphering*/
+for(i=0,j=0;i<l;i++)
 {
-for(j=0;j<len;j++)
-{
-code[i][j]=0;
+ if(i%2==0)
+ c[j++]=a[i];
 }
-}
-count=0; j=0;
-while(j<len)
+for(i=0;i<l;i++)
 {
-if(count%2==0)
-{
-for(i=0;i<rails;i++)
-{
-//strcpy(code[i][j],str[j]);
-code[i][j]=(int)str[j]; j++;
+ if(i%2==1)
+ c[j++]=a[i];
 }
-
-}
+c[j]='\0';
+printf("\nCipher text after applying rail fence :");
+printf("\n%s",c);
+/*Deciphering*/
+if(l%2==0)
+ k=l/2;
 else
+ k=(l/2)+1;
+for(i=0,j=0;i<k;i++)
 {
- 
-for(i=rails-2;i>0;i--)
+ d[j]=c[i];
+ j=j+2;
+}
+for(i=k,j=1;i<l;i++)
 {
-code[i][j]=(int)str[j]; j++;
+ d[j]=c[i];
+ j=j+2;
 }
-}
-
-count++;
-}
-
-for(i=0;i<rails;i++)
-{
-for(j=0;j<len;j++)
-{
-if(code[i][j]!=0) printf("%c",code[i][j]);
-}
-}
-printf("\n");
+d[l]='\0';
+printf("\nText after decryption : ");
+printf("%s",d);
+getch();
 }
 ```
 ## OUTPUT:
-```
-Enter a Secret Message wearediscovered
-Enter number of rails 2
-waeicvrderdsoee
-```
+![image](https://github.com/user-attachments/assets/613b555b-6023-4fc8-81f8-47dc917bfef8)
+
 ## RESULT:
 The program is executed successfully
