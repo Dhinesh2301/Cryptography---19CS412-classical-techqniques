@@ -75,10 +75,8 @@ getch();
 
 
 ## OUTPUT:
-```
-![caesar cipher](https://github.com/user-attachments/assets/d2e23cb2-523c-4f8b-90e2-51d47df04ab2)
 
-```
+![caesar cipher](https://github.com/user-attachments/assets/d2e23cb2-523c-4f8b-90e2-51d47df04ab2)
 
 ## RESULT:
 The program is executed successfully
