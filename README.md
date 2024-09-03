@@ -30,9 +30,8 @@ Implementation using C or pyhton code
 
 
 ## PROGRAM:
-PROGRAM:
-```
 CaesarCipher
+```
 #include <stdio.h>
 #include <string.h>
 #include<conio.h>
@@ -77,11 +76,7 @@ getch();
 
 ## OUTPUT:
 ```
-Simulating Caesar Cipher
-
-
-
-![image](https://github.com/user-attachments/assets/30dbbcae-3d07-4765-96c1-2265a304103c)
+![caesar cipher](https://github.com/user-attachments/assets/d2e23cb2-523c-4f8b-90e2-51d47df04ab2)
 
 ```
 
