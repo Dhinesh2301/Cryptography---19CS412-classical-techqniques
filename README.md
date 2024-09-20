@@ -384,54 +384,80 @@ The Vigenere cipher is a method of encrypting alphabetic text by using a series 
 
 ## PROGRAM:
 ``` C
-#include<stdio.h>
+#include <stdio.h>
+#include<stdlib.h>
 #include<conio.h>
+#include<ctype.h>
 #include<string.h>
-int main(){
-unsigned int a[3][3]={{6,24,1},{13,16,10},{20,17,15}};
-unsigned int b[3][3]={{8,5,10},{21,8,21},{21,12,8}};
-int i,j, t=0;
-unsigned int c[20],d[20];
-char msg[20];
-printf("Enter plain text: ");
-scanf("%s",msg);
-for(i=0;i<strlen(msg);i++)
+void encipher();
+void decipher();
+void main()
 {
-c[i]=msg[i]-65;
-unsigned int a[3][3]={{6,24,1},{13,16,10},{20,17,15}};
-unsigned int b[3][3]={{8,5,10},{21,8,21},{21,12,8}};
-printf("%d ",c[i]);
+    int choice;
+    while(1)
+    {
+        printf("\n1. Encrypt Text");
+        printf("\t2. Decrypt Text");
+        printf("\t3. Exit");
+        printf("\n\nEnter Your Choice : ");   
+        scanf("%d",&choice);
+        if(choice==3)
+        exit(0);
+        else if(choice==1)
+        encipher();
+        else if(choice ==2)
+        decipher();
+        else
+        printf("Please Enter Valid Option.");
+    }
 }
-for(i=0;i<3;i++)
-{ t=0;
-for(j=0;j<3;j++)
+void encipher()
 {
-t=t+(a[i][j]*c[j]);
-}
-d[i]=t%26;
-}
-printf("\nEncrypted Cipher Text :");
-for(i=0;i<3;i++)
-printf(" %c",d[i]+65);
-for(i=0;i<3;i++)
-{
-t=0;
-for(j=0;j<3;j++)
-{
-t=t+(b[i][j]*d[j]);
-}
-c[i]=t%26;
-}
-printf("\nDecrypted Cipher Text :");
-for(i=0;i<3;i++)
-printf(" %c",c[i]+65);
-getch();
-return 0;
-}
+   unsigned int i,j; 
+   char input[50],key[10];
+   printf("\n\n Enter Plain Text:");
+   scanf("%s",input);
+   printf("\nEnter Key Value");
+   scanf("%s",key);
+   printf("\nResultant Cipher Text:");
+   for(i=0,j=0;i<strlen(input);i++,j++)
+   {
+       if(j>=strlen(key))
+       {
+           j=0;
+       }
+       printf("%c",65+(((toupper(input[i])-65)+(toupper(key[j])-65))%26));
+   }}
+   
+   void decipher()
+   {
+      unsigned int i,j;
+      char input[50],key[50];
+      int value;
+      printf("\n\nEnter Cipher text:");
+      scanf("%s",input);
+      printf("\n\nEnter the key value:");
+      scanf("%s",key);
+      for(i=0,j=0;i<strlen(input);i++,j++)
+      {
+          if(j>=strlen(key))
+          {
+              j=0;
+          }
+          value = (toupper(input[i])-64)-(toupper(key[j])-64);
+        if( value < 0)
+        {
+            value=value*-1;
+        }
+        printf("%c",65+(value%26));
+      }
+   }
+
 ``` 
 ## OUTPUT:
 
-![image](https://github.com/user-attachments/assets/de45db43-57cd-4273-bdf1-8b28e830a4b6)
+![image](https://github.com/user-attachments/assets/7131c9fc-3f4e-4bdd-8f06-cf23e689ff28)
+
 
 ## RESULT:
 The program is executed successfully
