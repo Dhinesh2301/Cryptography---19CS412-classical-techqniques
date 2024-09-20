@@ -265,7 +265,7 @@ int main() {
 ```
 ## OUTPUT:
 
-![Screenshot 2024-09-06 133926](https://github.com/user-attachments/assets/6b796208-301e-45a0-b1e3-fa7254d356ae)
+![image](https://github.com/user-attachments/assets/79304c8d-5566-4b7e-832e-e6eb7e7dca37)
 
 
 ## RESULT:
@@ -349,7 +349,8 @@ return 0;
 ``` 
 ## OUTPUT:
 
-![Screenshot 2024-09-06 135145](https://github.com/user-attachments/assets/c7af0f75-cbb5-46a1-bd4f-f34109f8cb2b)
+![image](https://github.com/user-attachments/assets/9a68e49e-f724-4a49-9ed2-63a1ead58d81)
+
 
 ## RESULT:
 The program is executed successfully
@@ -430,8 +431,7 @@ return 0;
 ``` 
 ## OUTPUT:
 
-![image](https://github.com/user-attachments/assets/19e412e9-f686-442c-89df-8eedf8deac3d)
-
+![image](https://github.com/user-attachments/assets/de45db43-57cd-4273-bdf1-8b28e830a4b6)
 
 ## RESULT:
 The program is executed successfully
@@ -508,7 +508,8 @@ return 0;
 }
 ``` 
 ## OUTPUT:
-![image](https://github.com/user-attachments/assets/6ac75382-6a33-4a40-820a-65b74c3099ba)
+![image](https://github.com/user-attachments/assets/d3f49c10-fc9e-441c-9e5b-edc3860a39da)
+
 
 
 ## RESULT:
