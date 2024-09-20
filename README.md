@@ -69,7 +69,7 @@ return 0;
 ```
 ## OUTPUT:
 
-![Screenshot 2024-09-06 131836](https://github.com/user-attachments/assets/3a826388-1da5-4f97-9621-f2996baab79b)
+![image](https://github.com/user-attachments/assets/239cb2b1-e852-4a99-b8c0-f6ebef9588f5)
 
 
 ## RESULT:
