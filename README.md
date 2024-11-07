@@ -535,7 +535,8 @@ return 0;
 }
 ``` 
 ## OUTPUT:
-![image](https://github.com/user-attachments/assets/d3f49c10-fc9e-441c-9e5b-edc3860a39da)
+![image](https://github.com/user-attachments/assets/8bacba0c-2774-42db-af46-501e188e629a)
+
 
 
 
