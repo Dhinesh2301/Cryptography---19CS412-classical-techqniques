@@ -456,7 +456,8 @@ void encipher()
 ``` 
 ## OUTPUT:
 
-![image](https://github.com/user-attachments/assets/7131c9fc-3f4e-4bdd-8f06-cf23e689ff28)
+![image](https://github.com/user-attachments/assets/ce83e1a3-3607-4325-a314-245513123bdb)
+
 
 
 ## RESULT:
