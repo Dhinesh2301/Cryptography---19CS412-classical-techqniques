@@ -482,7 +482,8 @@ int main() {
 
 
 ## OUTPUT:
-![Screenshot 2024-09-02 153929](https://github.com/user-attachments/assets/2a59a18e-a58d-4388-bf5b-a3c4658f1fc7)
+![image](https://github.com/user-attachments/assets/4e890d36-db9b-4341-962d-cf3f2f7d0762)
+
 
 ## RESULT:
 The program is executed successfully
