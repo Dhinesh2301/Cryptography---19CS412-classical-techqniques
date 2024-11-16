@@ -661,7 +661,8 @@ int main() {
 }
 ```
 ## OUTPUT:
-![Screenshot 2024-09-02 154332](https://github.com/user-attachments/assets/4bb69396-4696-4128-8cfa-5e626a59e286)
+![image](https://github.com/user-attachments/assets/9d9141a1-5866-4e15-a3bd-357091e86e6a)
+
 
 ## RESULT:
 The program is executed successfully
