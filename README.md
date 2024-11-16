@@ -343,7 +343,8 @@ int main() {
 ```
 
 ## OUTPUT:
-![Screenshot 2024-09-02 153220](https://github.com/user-attachments/assets/b007f233-88d9-48a9-84de-8a3fd2370f3f)
+![image](https://github.com/user-attachments/assets/56bf277a-6df5-4af0-9edc-710510ce3b46)
+
 
 ## RESULT:
 The program is executed successfully
