@@ -431,7 +431,7 @@ int main() {
     char dec[1000] = "";
     int n;
 
-    strcpy(msg, "MOHAMEDABRARM");
+    strcpy(msg, "DHINESH R");
 
     printf("Simulation of Hill Cipher\n");
     printf("Input message : %s\n", msg);
@@ -558,7 +558,7 @@ void vigenereDecrypt(char *text, const char *key) {
 
 int main() {
     const char *key = "YUV"; 
-    char message[] = "saveethaengineeringcollege"; 
+    char message[] = "DHINESH HELLO TO EVERYONE"; 
     
     printf("Simulating Vigenere Cipher:\n");
     // Print the original plain text
