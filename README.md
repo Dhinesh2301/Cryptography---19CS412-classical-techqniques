@@ -29,7 +29,6 @@ Implementation using C or pyhton code
 
 
 ## PROGRAM:
-CaearCipher.
 ```c
 #include <stdio.h>
 #include <stdlib.h>
